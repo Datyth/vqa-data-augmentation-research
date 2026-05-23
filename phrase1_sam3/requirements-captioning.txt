@@ -1,0 +1,14 @@
+# Optional dependencies for BLIP-2 and Florence-2 caption generation.
+# Install these in an environment with a compatible PyTorch/CUDA setup.
+#
+# Florence-2 Hub remote code currently needs Transformers 4.x.
+# Transformers 5.x can raise config/cache/tokenizer compatibility errors.
+
+torch
+torchvision
+Pillow
+transformers>=4.41,<5
+accelerate
+timm
+einops
+sentencepiece

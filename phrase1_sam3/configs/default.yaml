@@ -1,0 +1,37 @@
+datasetlink: "/mnt/VLAI_data/VQAv2/"
+imageslink: "/mnt/VLAI_data/COCO_Images/"
+output_dir: "phrase1_sam3/outputs"
+output_layout: "grouped_json"
+
+# Default to the small rest_val files present in the configured VQAv2 tree.
+split: "rest_val"
+questions_file: "v2_OpenEnded_mscoco_rest_val2014_questions.json"
+annotations_file: "v2_mscoco_rest_val2014_annotations.json"
+
+# Optional JSON/JSONL/CSV mappings keyed by image_id.
+# `caption` writes this file; `run` reads it if present.
+captions_file: "phrase1_sam3/outputs/captions.json"
+dataset_labels_file: ""
+
+# Image captioning settings. BLIP-2 and Florence-2 require optional dependencies.
+caption_models: "blip2,florence2"
+caption_output_file: "phrase1_sam3/outputs/captions.json"
+caption_device: "auto"
+caption_torch_dtype: "auto"
+caption_max_new_tokens: 64
+caption_num_beams: 3
+blip2_model_id: "Salesforce/blip2-opt-2.7b"
+florence2_model_id: "microsoft/Florence-2-base"
+
+# A caption only, B VQA text only, C dataset labels only,
+# D caption + VQA text, E all sources.
+source_variant: "D"
+top_k: 10
+max_images: 30
+
+# Use dryrun for dependency-free smoke tests; replace with sam3 after wiring real SAM 3.
+sam_backend: "dryrun"
+mask_threshold: 0.6
+min_area_fraction: 0.0005
+max_area_fraction: 0.85
+duplicate_iou: 0.8

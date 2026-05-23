@@ -1,0 +1,13 @@
+# Runtime requirements for the default Phase 1 pipeline.
+# Candidate extraction uses spaCy noun chunks with the en_core_web_sm model.
+#
+# Real SAM 3 inference is not covered by this file. See README.md and
+# requirements-sam3.txt for the official SAM 3 environment notes.
+
+spacy
+matplotlib
+tqdm
+# Install model data with: python -m spacy download en_core_web_sm
+
+# Optional BLIP-2/Florence-2 captioning dependencies live in:
+#   phrase1_sam3/requirements-captioning.txt
